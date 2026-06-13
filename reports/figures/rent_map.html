@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_dfe1892317a3f20e81e9ab850dea9039 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_dfe1892317a3f20e81e9ab850dea9039" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_dfe1892317a3f20e81e9ab850dea9039 = L.map(
+                "map_dfe1892317a3f20e81e9ab850dea9039",
+                {
+                    center: [53.283652458333336, -6.213448],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_92cb5af8bb3ee6de7a06465fdef77130 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_92cb5af8bb3ee6de7a06465fdef77130.addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+    var color_map_9e7f104bbc5c727b6b442d74df34db19 = {};
+
+    
+    color_map_9e7f104bbc5c727b6b442d74df34db19.color = d3.scale.threshold()
+              .domain([1772.2, 1773.4830661322646, 1774.766132264529, 1776.0491983967936, 1777.3322645290582, 1778.6153306613228, 1779.8983967935872, 1781.1814629258517, 1782.4645290581163, 1783.7475951903807, 1785.0306613226453, 1786.31372745491, 1787.5967935871745, 1788.8798597194389, 1790.1629258517034, 1791.445991983968, 1792.7290581162324, 1794.012124248497, 1795.2951903807616, 1796.5782565130262, 1797.8613226452906, 1799.1443887775552, 1800.4274549098197, 1801.710521042084, 1802.9935871743487, 1804.2766533066133, 1805.559719438878, 1806.8427855711423, 1808.1258517034069, 1809.4089178356714, 1810.6919839679358, 1811.9750501002004, 1813.258116232465, 1814.5411823647296, 1815.824248496994, 1817.1073146292586, 1818.3903807615231, 1819.6734468937875, 1820.956513026052, 1822.2395791583167, 1823.5226452905813, 1824.8057114228457, 1826.0887775551103, 1827.3718436873748, 1828.6549098196392, 1829.9379759519038, 1831.2210420841684, 1832.504108216433, 1833.7871743486974, 1835.070240480962, 1836.3533066132266, 1837.636372745491, 1838.9194388777555, 1840.20250501002, 1841.4855711422847, 1842.768637274549, 1844.0517034068137, 1845.3347695390783, 1846.6178356713426, 1847.9009018036072, 1849.1839679358718, 1850.4670340681364, 1851.7501002004008, 1853.0331663326654, 1854.31623246493, 1855.5992985971943, 1856.882364729459, 1858.1654308617235, 1859.448496993988, 1860.7315631262525, 1862.014629258517, 1863.2976953907817, 1864.580761523046, 1865.8638276553106, 1867.1468937875752, 1868.4299599198398, 1869.7130260521042, 1870.9960921843688, 1872.2791583166334, 1873.5622244488977, 1874.8452905811623, 1876.128356713427, 1877.4114228456915, 1878.6944889779559, 1879.9775551102205, 1881.260621242485, 1882.5436873747494, 1883.826753507014, 1885.1098196392786, 1886.3928857715432, 1887.6759519038076, 1888.9590180360722, 1890.2420841683368, 1891.5251503006011, 1892.8082164328657, 1894.0912825651303, 1895.374348697395, 1896.6574148296593, 1897.9404809619239, 1899.2235470941885, 1900.5066132264528, 1901.7896793587174, 1903.072745490982, 1904.3558116232464, 1905.638877755511, 1906.9219438877756, 1908.2050100200402, 1909.4880761523045, 1910.7711422845691, 1912.0542084168337, 1913.3372745490983, 1914.6203406813627, 1915.9034068136273, 1917.1864729458919, 1918.4695390781562, 1919.7526052104208, 1921.0356713426854, 1922.31873747495, 1923.6018036072144, 1924.884869739479, 1926.1679358717436, 1927.451002004008, 1928.7340681362725, 1930.0171342685371, 1931.3002004008017, 1932.583266533066, 1933.8663326653307, 1935.1493987975953, 1936.4324649298596, 1937.7155310621242, 1938.9985971943888, 1940.2816633266534, 1941.5647294589178, 1942.8477955911824, 1944.130861723447, 1945.4139278557113, 1946.696993987976, 1947.9800601202405, 1949.2631262525051, 1950.5461923847695, 1951.829258517034, 1953.1123246492987, 1954.395390781563, 1955.6784569138276, 1956.9615230460922, 1958.2445891783568, 1959.5276553106212, 1960.8107214428858, 1962.0937875751504, 1963.3768537074147, 1964.6599198396793, 1965.942985971944, 1967.2260521042085, 1968.509118236473, 1969.7921843687375, 1971.075250501002, 1972.3583166332664, 1973.641382765531, 1974.9244488977956, 1976.2075150300602, 1977.4905811623246, 1978.7736472945892, 1980.0567134268535, 1981.3397795591181, 1982.6228456913827, 1983.9059118236473, 1985.1889779559117, 1986.4720440881763, 1987.7551102204409, 1989.0381763527052, 1990.3212424849698, 1991.6043086172344, 1992.887374749499, 1994.1704408817634, 1995.453507014028, 1996.7365731462926, 1998.019639278557, 1999.3027054108215, 2000.5857715430861, 2001.8688376753507, 2003.151903807615, 2004.4349699398797, 2005.7180360721443, 2007.0011022044087, 2008.2841683366732, 2009.5672344689378, 2010.8503006012024, 2012.1333667334668, 2013.4164328657314, 2014.699498997996, 2015.9825651302604, 2017.265631262525, 2018.5486973947895, 2019.8317635270541, 2021.1148296593185, 2022.397895791583, 2023.6809619238477, 2024.964028056112, 2026.2470941883766, 2027.5301603206412, 2028.8132264529058, 2030.0962925851704, 2031.3793587174348, 2032.6624248496994, 2033.9454909819638, 2035.2285571142284, 2036.511623246493, 2037.7946893787575, 2039.077755511022, 2040.3608216432865, 2041.643887775551, 2042.9269539078155, 2044.21002004008, 2045.4930861723446, 2046.7761523046092, 2048.059218436874, 2049.3422845691384, 2050.6253507014026, 2051.908416833667, 2053.1914829659318, 2054.4745490981963, 2055.757615230461, 2057.0406813627255, 2058.32374749499, 2059.6068136272543, 2060.889879759519, 2062.1729458917835, 2063.456012024048, 2064.7390781563126, 2066.0221442885772, 2067.305210420842, 2068.588276553106, 2069.8713426853706, 2071.154408817635, 2072.4374749498998, 2073.7205410821643, 2075.003607214429, 2076.2866733466935, 2077.5697394789577, 2078.8528056112223, 2080.135871743487, 2081.4189378757515, 2082.702004008016, 2083.9850701402806, 2085.2681362725452, 2086.5512024048094, 2087.834268537074, 2089.1173346693386, 2090.400400801603, 2091.6834669338677, 2092.9665330661323, 2094.249599198397, 2095.532665330661, 2096.8157314629257, 2098.0987975951903, 2099.381863727455, 2100.6649298597195, 2101.947995991984, 2103.2310621242486, 2104.514128256513, 2105.7971943887774, 2107.080260521042, 2108.3633266533066, 2109.646392785571, 2110.9294589178357, 2112.2125250501003, 2113.4955911823645, 2114.778657314629, 2116.0617234468937, 2117.3447895791583, 2118.627855711423, 2119.9109218436874, 2121.193987975952, 2122.477054108216, 2123.760120240481, 2125.0431863727454, 2126.32625250501, 2127.6093186372746, 2128.892384769539, 2130.1754509018037, 2131.458517034068, 2132.7415831663325, 2134.024649298597, 2135.3077154308617, 2136.5907815631263, 2137.873847695391, 2139.1569138276554, 2140.4399799599196, 2141.723046092184, 2143.0061122244488, 2144.2891783567134, 2145.572244488978, 2146.8553106212426, 2148.138376753507, 2149.4214428857713, 2150.704509018036, 2151.9875751503005, 2153.270641282565, 2154.5537074148297, 2155.8367735470943, 2157.119839679359, 2158.402905811623, 2159.6859719438876, 2160.969038076152, 2162.2521042084168, 2163.5351703406814, 2164.818236472946, 2166.1013026052105, 2167.3843687374747, 2168.6674348697393, 2169.950501002004, 2171.2335671342685, 2172.516633266533, 2173.7996993987977, 2175.0827655310623, 2176.3658316633264, 2177.648897795591, 2178.9319639278556, 2180.21503006012, 2181.4980961923848, 2182.7811623246494, 2184.064228456914, 2185.347294589178, 2186.6303607214427, 2187.9134268537073, 2189.196492985972, 2190.4795591182365, 2191.762625250501, 2193.0456913827657, 2194.32875751503, 2195.6118236472944, 2196.894889779559, 2198.1779559118236, 2199.461022044088, 2200.7440881763528, 2202.0271543086174, 2203.3102204408815, 2204.593286573146, 2205.8763527054107, 2207.1594188376753, 2208.44248496994, 2209.7255511022045, 2211.008617234469, 2212.291683366733, 2213.574749498998, 2214.8578156312624, 2216.140881763527, 2217.4239478957916, 2218.707014028056, 2219.9900801603208, 2221.273146292585, 2222.5562124248495, 2223.839278557114, 2225.1223446893787, 2226.4054108216433, 2227.688476953908, 2228.9715430861725, 2230.2546092184366, 2231.537675350701, 2232.820741482966, 2234.1038076152304, 2235.386873747495, 2236.6699398797596, 2237.953006012024, 2239.2360721442883, 2240.519138276553, 2241.8022044088175, 2243.085270541082, 2244.3683366733467, 2245.6514028056113, 2246.934468937876, 2248.21753507014, 2249.5006012024046, 2250.783667334669, 2252.066733466934, 2253.3497995991984, 2254.632865731463, 2255.9159318637276, 2257.1989979959917, 2258.4820641282563, 2259.765130260521, 2261.0481963927855, 2262.33126252505, 2263.6143286573147, 2264.8973947895793, 2266.1804609218434, 2267.463527054108, 2268.7465931863726, 2270.029659318637, 2271.312725450902, 2272.5957915831664, 2273.878857715431, 2275.161923847695, 2276.4449899799597, 2277.7280561122243, 2279.011122244489, 2280.2941883767535, 2281.577254509018, 2282.8603206412827, 2284.143386773547, 2285.4264529058114, 2286.709519038076, 2287.9925851703406, 2289.275651302605, 2290.55871743487, 2291.8417835671344, 2293.1248496993985, 2294.407915831663, 2295.6909819639277, 2296.9740480961923, 2298.257114228457, 2299.540180360721, 2300.8232464929856, 2302.10631262525, 2303.389378757515, 2304.6724448897794, 2305.955511022044, 2307.2385771543086, 2308.5216432865727, 2309.8047094188373, 2311.087775551102, 2312.3708416833665, 2313.653907815631, 2314.9369739478957, 2316.2200400801603, 2317.5031062124244, 2318.786172344689, 2320.0692384769536, 2321.352304609218, 2322.635370741483, 2323.9184368737474, 2325.201503006012, 2326.484569138276, 2327.767635270541, 2329.0507014028053, 2330.33376753507, 2331.6168336673345, 2332.899899799599, 2334.1829659318637, 2335.466032064128, 2336.749098196393, 2338.032164328657, 2339.3152304609216, 2340.598296593186, 2341.881362725451, 2343.1644288577154, 2344.4474949899795, 2345.7305611222446, 2347.0136272545087, 2348.2966933867733, 2349.579759519038, 2350.8628256513025, 2352.145891783567, 2353.4289579158312, 2354.7120240480963, 2355.9950901803604, 2357.278156312625, 2358.5612224448896, 2359.844288577154, 2361.127354709419, 2362.410420841683, 2363.693486973948, 2364.976553106212, 2366.2596192384767, 2367.5426853707413, 2368.825751503006, 2370.1088176352705, 2371.3918837675346, 2372.6749498997997, 2373.958016032064, 2375.2410821643284, 2376.524148296593, 2377.8072144288576, 2379.090280561122, 2380.3733466933863, 2381.6564128256514, 2382.9394789579155, 2384.22254509018, 2385.5056112224447, 2386.7886773547093, 2388.071743486974, 2389.354809619238, 2390.637875751503, 2391.9209418837672, 2393.204008016032, 2394.4870741482964, 2395.770140280561, 2397.0532064128256, 2398.3362725450897, 2399.619338677355, 2400.902404809619, 2402.1854709418835, 2403.468537074148, 2404.7516032064127, 2406.0346693386773, 2407.3177354709414, 2408.6008016032065, 2409.8838677354706, 2411.166933867735, 2412.45])
+              .range(['#008000ff', '#018100ff', '#028100ff', '#038200ff', '#048200ff', '#058300ff', '#068300ff', '#078400ff', '#088400ff', '#098500ff', '#0a8500ff', '#0b8600ff', '#0c8600ff', '#0d8700ff', '#0e8700ff', '#0f8800ff', '#108800ff', '#118900ff', '#128900ff', '#138a00ff', '#148a00ff', '#158b00ff', '#168b00ff', '#178c00ff', '#188c00ff', '#198d00ff', '#1a8d00ff', '#1b8e00ff', '#1c8e00ff', '#1d8f00ff', '#1e8f00ff', '#1f9000ff', '#209000ff', '#219100ff', '#229100ff', '#239200ff', '#249200ff', '#259300ff', '#269300ff', '#289400ff', '#299400ff', '#2a9500ff', '#2b9500ff', '#2c9600ff', '#2d9600ff', '#2e9700ff', '#2f9800ff', '#309800ff', '#319900ff', '#329900ff', '#339a00ff', '#349a00ff', '#359b00ff', '#369b00ff', '#379c00ff', '#389c00ff', '#399d00ff', '#3a9d00ff', '#3b9e00ff', '#3c9e00ff', '#3d9f00ff', '#3e9f00ff', '#3fa000ff', '#40a000ff', '#41a100ff', '#42a100ff', '#43a200ff', '#44a200ff', '#45a300ff', '#46a300ff', '#47a400ff', '#48a400ff', '#49a500ff', '#4aa500ff', '#4ba600ff', '#4ca600ff', '#4da700ff', '#4fa700ff', '#50a800ff', '#51a800ff', '#52a900ff', '#53a900ff', '#54aa00ff', '#55aa00ff', '#56ab00ff', '#57ab00ff', '#58ac00ff', '#59ac00ff', '#5aad00ff', '#5bad00ff', '#5cae00ff', '#5daf00ff', '#5eaf00ff', '#5fb000ff', '#60b000ff', '#61b100ff', '#62b100ff', '#63b200ff', '#64b200ff', '#65b300ff', '#66b300ff', '#67b400ff', '#68b400ff', '#69b500ff', '#6ab500ff', '#6bb600ff', '#6cb600ff', '#6db700ff', '#6eb700ff', '#6fb800ff', '#70b800ff', '#71b900ff', '#72b900ff', '#73ba00ff', '#74ba00ff', '#75bb00ff', '#77bb00ff', '#78bc00ff', '#79bc00ff', '#7abd00ff', '#7bbd00ff', '#7cbe00ff', '#7dbe00ff', '#7ebf00ff', '#7fbf00ff', '#80c000ff', '#81c000ff', '#82c100ff', '#83c100ff', '#84c200ff', '#85c200ff', '#86c300ff', '#87c300ff', '#88c400ff', '#89c400ff', '#8ac500ff', '#8bc500ff', '#8cc600ff', '#8dc700ff', '#8ec700ff', '#8fc800ff', '#90c800ff', '#91c900ff', '#92c900ff', '#93ca00ff', '#94ca00ff', '#95cb00ff', '#96cb00ff', '#97cc00ff', '#98cc00ff', '#99cd00ff', '#9acd00ff', '#9bce00ff', '#9cce00ff', '#9ecf00ff', '#9fcf00ff', '#a0d000ff', '#a1d000ff', '#a2d100ff', '#a3d100ff', '#a4d200ff', '#a5d200ff', '#a6d300ff', '#a7d300ff', '#a8d400ff', '#a9d400ff', '#aad500ff', '#abd500ff', '#acd600ff', '#add600ff', '#aed700ff', '#afd700ff', '#b0d800ff', '#b1d800ff', '#b2d900ff', '#b3d900ff', '#b4da00ff', '#b5da00ff', '#b6db00ff', '#b7db00ff', '#b8dc00ff', '#b9dc00ff', '#badd00ff', '#bbde00ff', '#bcde00ff', '#bddf00ff', '#bedf00ff', '#bfe000ff', '#c0e000ff', '#c1e100ff', '#c2e100ff', '#c3e200ff', '#c5e200ff', '#c6e300ff', '#c7e300ff', '#c8e400ff', '#c9e400ff', '#cae500ff', '#cbe500ff', '#cce600ff', '#cde600ff', '#cee700ff', '#cfe700ff', '#d0e800ff', '#d1e800ff', '#d2e900ff', '#d3e900ff', '#d4ea00ff', '#d5ea00ff', '#d6eb00ff', '#d7eb00ff', '#d8ec00ff', '#d9ec00ff', '#daed00ff', '#dbed00ff', '#dcee00ff', '#ddee00ff', '#deef00ff', '#dfef00ff', '#e0f000ff', '#e1f000ff', '#e2f100ff', '#e3f100ff', '#e4f200ff', '#e5f200ff', '#e6f300ff', '#e7f300ff', '#e8f400ff', '#e9f500ff', '#eaf500ff', '#ebf600ff', '#edf600ff', '#eef700ff', '#eff700ff', '#f0f800ff', '#f1f800ff', '#f2f900ff', '#f3f900ff', '#f4fa00ff', '#f5fa00ff', '#f6fb00ff', '#f7fb00ff', '#f8fc00ff', '#f9fc00ff', '#fafd00ff', '#fbfd00ff', '#fcfe00ff', '#fdfe00ff', '#feff00ff', '#ffff00ff', '#ffff00ff', '#fffe00ff', '#fffd00ff', '#fffc00ff', '#fffb00ff', '#fffa00ff', '#fff900ff', '#fff800ff', '#fff700ff', '#fff600ff', '#fff500ff', '#fff400ff', '#fff300ff', '#fff200ff', '#fff100ff', '#fff000ff', '#ffef00ff', '#ffee00ff', '#ffed00ff', '#ffeb00ff', '#ffea00ff', '#ffe900ff', '#ffe800ff', '#ffe700ff', '#ffe600ff', '#ffe500ff', '#ffe400ff', '#ffe300ff', '#ffe200ff', '#ffe100ff', '#ffe000ff', '#ffdf00ff', '#ffde00ff', '#ffdd00ff', '#ffdc00ff', '#ffdb00ff', '#ffda00ff', '#ffd900ff', '#ffd800ff', '#ffd700ff', '#ffd600ff', '#ffd500ff', '#ffd400ff', '#ffd300ff', '#ffd200ff', '#ffd100ff', '#ffd000ff', '#ffcf00ff', '#ffce00ff', '#ffcd00ff', '#ffcc00ff', '#ffcb00ff', '#ffca00ff', '#ffc900ff', '#ffc800ff', '#ffc700ff', '#ffc600ff', '#ffc500ff', '#ffc300ff', '#ffc200ff', '#ffc100ff', '#ffc000ff', '#ffbf00ff', '#ffbe00ff', '#ffbd00ff', '#ffbc00ff', '#ffbb00ff', '#ffba00ff', '#ffb900ff', '#ffb800ff', '#ffb700ff', '#ffb600ff', '#ffb500ff', '#ffb400ff', '#ffb300ff', '#ffb200ff', '#ffb100ff', '#ffb000ff', '#ffaf00ff', '#ffae00ff', '#ffad00ff', '#ffac00ff', '#ffab00ff', '#ffaa00ff', '#ffa900ff', '#ffa800ff', '#ffa700ff', '#ffa600ff', '#ffa500ff', '#ffa400ff', '#ffa300ff', '#ffa200ff', '#ffa100ff', '#ffa000ff', '#ff9f00ff', '#ff9e00ff', '#ff9c00ff', '#ff9b00ff', '#ff9a00ff', '#ff9900ff', '#ff9800ff', '#ff9700ff', '#ff9600ff', '#ff9500ff', '#ff9400ff', '#ff9300ff', '#ff9200ff', '#ff9100ff', '#ff9000ff', '#ff8f00ff', '#ff8e00ff', '#ff8d00ff', '#ff8c00ff', '#ff8b00ff', '#ff8a00ff', '#ff8900ff', '#ff8800ff', '#ff8700ff', '#ff8600ff', '#ff8500ff', '#ff8400ff', '#ff8300ff', '#ff8200ff', '#ff8100ff', '#ff8000ff', '#ff7f00ff', '#ff7e00ff', '#ff7d00ff', '#ff7c00ff', '#ff7b00ff', '#ff7a00ff', '#ff7900ff', '#ff7800ff', '#ff7700ff', '#ff7500ff', '#ff7400ff', '#ff7300ff', '#ff7200ff', '#ff7100ff', '#ff7000ff', '#ff6f00ff', '#ff6e00ff', '#ff6d00ff', '#ff6c00ff', '#ff6b00ff', '#ff6a00ff', '#ff6900ff', '#ff6800ff', '#ff6700ff', '#ff6600ff', '#ff6500ff', '#ff6400ff', '#ff6300ff', '#ff6200ff', '#ff6100ff', '#ff6000ff', '#ff5f00ff', '#ff5e00ff', '#ff5d00ff', '#ff5c00ff', '#ff5b00ff', '#ff5a00ff', '#ff5900ff', '#ff5800ff', '#ff5700ff', '#ff5600ff', '#ff5500ff', '#ff5400ff', '#ff5300ff', '#ff5200ff', '#ff5100ff', '#ff5000ff', '#ff4f00ff', '#ff4d00ff', '#ff4c00ff', '#ff4b00ff', '#ff4a00ff', '#ff4900ff', '#ff4800ff', '#ff4700ff', '#ff4600ff', '#ff4500ff', '#ff4400ff', '#ff4300ff', '#ff4200ff', '#ff4100ff', '#ff4000ff', '#ff3f00ff', '#ff3e00ff', '#ff3d00ff', '#ff3c00ff', '#ff3b00ff', '#ff3a00ff', '#ff3900ff', '#ff3800ff', '#ff3700ff', '#ff3600ff', '#ff3500ff', '#ff3400ff', '#ff3300ff', '#ff3200ff', '#ff3100ff', '#ff3000ff', '#ff2f00ff', '#ff2e00ff', '#ff2d00ff', '#ff2c00ff', '#ff2b00ff', '#ff2a00ff', '#ff2900ff', '#ff2800ff', '#ff2600ff', '#ff2500ff', '#ff2400ff', '#ff2300ff', '#ff2200ff', '#ff2100ff', '#ff2000ff', '#ff1f00ff', '#ff1e00ff', '#ff1d00ff', '#ff1c00ff', '#ff1b00ff', '#ff1a00ff', '#ff1900ff', '#ff1800ff', '#ff1700ff', '#ff1600ff', '#ff1500ff', '#ff1400ff', '#ff1300ff', '#ff1200ff', '#ff1100ff', '#ff1000ff', '#ff0f00ff', '#ff0e00ff', '#ff0d00ff', '#ff0c00ff', '#ff0b00ff', '#ff0a00ff', '#ff0900ff', '#ff0800ff', '#ff0700ff', '#ff0600ff', '#ff0500ff', '#ff0400ff', '#ff0300ff', '#ff0200ff', '#ff0100ff', '#ff0000ff']);
+    
+
+    color_map_9e7f104bbc5c727b6b442d74df34db19.x = d3.scale.linear()
+              .domain([1772.2, 2412.45])
+              .range([0, 450 - 50]);
+
+    color_map_9e7f104bbc5c727b6b442d74df34db19.legend = L.control({position: 'topright'});
+    color_map_9e7f104bbc5c727b6b442d74df34db19.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_9e7f104bbc5c727b6b442d74df34db19.legend.addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+
+    color_map_9e7f104bbc5c727b6b442d74df34db19.xAxis = d3.svg.axis()
+        .scale(color_map_9e7f104bbc5c727b6b442d74df34db19.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([1772.2, 2092.325, 2412.45]);
+
+    color_map_9e7f104bbc5c727b6b442d74df34db19.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_9e7f104bbc5c727b6b442d74df34db19.g = color_map_9e7f104bbc5c727b6b442d74df34db19.svg.append("g")
+        .attr("class", "key")
+        .attr("fill", "black")
+        .attr("transform", "translate(25,16)");
+
+    color_map_9e7f104bbc5c727b6b442d74df34db19.g.selectAll("rect")
+        .data(color_map_9e7f104bbc5c727b6b442d74df34db19.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_9e7f104bbc5c727b6b442d74df34db19.x(color_map_9e7f104bbc5c727b6b442d74df34db19.color.domain()[i - 1]) : color_map_9e7f104bbc5c727b6b442d74df34db19.x.range()[0],
+            x1: i < color_map_9e7f104bbc5c727b6b442d74df34db19.color.domain().length ? color_map_9e7f104bbc5c727b6b442d74df34db19.x(color_map_9e7f104bbc5c727b6b442d74df34db19.color.domain()[i]) : color_map_9e7f104bbc5c727b6b442d74df34db19.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 40 - 30)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_9e7f104bbc5c727b6b442d74df34db19.g.call(color_map_9e7f104bbc5c727b6b442d74df34db19.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .attr("fill", "black")
+        .text("Average monthly rent (EUR)");
+    
+            var poly_line_86ac9cc929cc6f608ae9cde065b7f64c = L.polyline(
+                [[53.339072, -6.261333], [53.333358, -6.26265], [53.330669, -6.258683], [53.326433, -6.256203], [53.320822, -6.254653], [53.316467, -6.253447], [53.309917, -6.251728], [53.301558, -6.250708], [53.292358, -6.245117], [53.286106, -6.236772], [53.283008, -6.223886], [53.279311, -6.209919], [53.277603, -6.204678], [53.27015, -6.203764], [53.266336, -6.209942], [53.261164, -6.206022], [53.258247, -6.198361], [53.255047, -6.184475], [53.255367, -6.175161], [53.254033, -6.169908], [53.252619, -6.161597], [53.250606, -6.155006], [53.245333, -6.145853], [53.242075, -6.142886]],
+                {"bubblingMouseEvents": true, "color": "#444", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#444", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+            var circle_marker_d9ce3c18764ec849818e19a358a21072 = L.circleMarker(
+                [53.339072, -6.261333],
+                {"bubblingMouseEvents": true, "color": "#ffea00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffea00ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_3d0c5c7be5814e71a5f492c822fa607b = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_7d163f9c547a1eb2b2db7f5c5218c121 = $(`<div id="html_7d163f9c547a1eb2b2db7f5c5218c121" style="width: 100.0%; height: 100.0%;"><b>St. Stephen's Green</b><br>€2,119/month<br>0 min to St. Stephen's Green</div>`)[0];
+                popup_3d0c5c7be5814e71a5f492c822fa607b.setContent(html_7d163f9c547a1eb2b2db7f5c5218c121);
+            
+        
+
+        circle_marker_d9ce3c18764ec849818e19a358a21072.bindPopup(popup_3d0c5c7be5814e71a5f492c822fa607b)
+        ;
+
+        
+    
+    
+            var circle_marker_0e9dc2b217dd504d6fa8292b11b2067f = L.circleMarker(
+                [53.333358, -6.26265],
+                {"bubblingMouseEvents": true, "color": "#ffea00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffea00ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_94cd03add4d942e5ef8a984126f27435 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_85439799e3b6d10b5158a7ca7524a490 = $(`<div id="html_85439799e3b6d10b5158a7ca7524a490" style="width: 100.0%; height: 100.0%;"><b>Harcourt</b><br>€2,119/month<br>2 min to St. Stephen's Green</div>`)[0];
+                popup_94cd03add4d942e5ef8a984126f27435.setContent(html_85439799e3b6d10b5158a7ca7524a490);
+            
+        
+
+        circle_marker_0e9dc2b217dd504d6fa8292b11b2067f.bindPopup(popup_94cd03add4d942e5ef8a984126f27435)
+        ;
+
+        
+    
+    
+            var circle_marker_aed46efc50ace4f94de2ebe9e54d9b8f = L.circleMarker(
+                [53.330669, -6.258683],
+                {"bubblingMouseEvents": true, "color": "#ffea00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffea00ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_a1db87cba492fbc1917311a6ee7334ea = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_4ff59f41fe6324776cde971504536433 = $(`<div id="html_4ff59f41fe6324776cde971504536433" style="width: 100.0%; height: 100.0%;"><b>Charlemont</b><br>€2,119/month<br>4 min to St. Stephen's Green</div>`)[0];
+                popup_a1db87cba492fbc1917311a6ee7334ea.setContent(html_4ff59f41fe6324776cde971504536433);
+            
+        
+
+        circle_marker_aed46efc50ace4f94de2ebe9e54d9b8f.bindPopup(popup_a1db87cba492fbc1917311a6ee7334ea)
+        ;
+
+        
+    
+    
+            var circle_marker_624bb3bd778b5c309513c7d2633aafdd = L.circleMarker(
+                [53.326433, -6.256203],
+                {"bubblingMouseEvents": true, "color": "#098500ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#098500ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_845b1cf1fd7effda67cb64b27b2f304f = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_022fead855269968387afbd3ef5647c8 = $(`<div id="html_022fead855269968387afbd3ef5647c8" style="width: 100.0%; height: 100.0%;"><b>Ranelagh</b><br>€1,784/month<br>7 min to St. Stephen's Green</div>`)[0];
+                popup_845b1cf1fd7effda67cb64b27b2f304f.setContent(html_022fead855269968387afbd3ef5647c8);
+            
+        
+
+        circle_marker_624bb3bd778b5c309513c7d2633aafdd.bindPopup(popup_845b1cf1fd7effda67cb64b27b2f304f)
+        ;
+
+        
+    
+    
+            var circle_marker_8c3b1c13427cba7bc4414b6e971226fc = L.circleMarker(
+                [53.320822, -6.254653],
+                {"bubblingMouseEvents": true, "color": "#098500ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#098500ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_2cfab7ef2cc97b47362ddcd201f05053 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_034e38af449b3369bc66f50765c69687 = $(`<div id="html_034e38af449b3369bc66f50765c69687" style="width: 100.0%; height: 100.0%;"><b>Beechwood</b><br>€1,784/month<br>9 min to St. Stephen's Green</div>`)[0];
+                popup_2cfab7ef2cc97b47362ddcd201f05053.setContent(html_034e38af449b3369bc66f50765c69687);
+            
+        
+
+        circle_marker_8c3b1c13427cba7bc4414b6e971226fc.bindPopup(popup_2cfab7ef2cc97b47362ddcd201f05053)
+        ;
+
+        
+    
+    
+            var circle_marker_5a79bc714a484d4737e506a78e2f98b0 = L.circleMarker(
+                [53.316467, -6.253447],
+                {"bubblingMouseEvents": true, "color": "#098500ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#098500ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_03e8b41aa3f1f4cff089f6760284c0aa = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_393f5fadf6bd4747cb86d404e4ead0e7 = $(`<div id="html_393f5fadf6bd4747cb86d404e4ead0e7" style="width: 100.0%; height: 100.0%;"><b>Cowper</b><br>€1,784/month<br>11 min to St. Stephen's Green</div>`)[0];
+                popup_03e8b41aa3f1f4cff089f6760284c0aa.setContent(html_393f5fadf6bd4747cb86d404e4ead0e7);
+            
+        
+
+        circle_marker_5a79bc714a484d4737e506a78e2f98b0.bindPopup(popup_03e8b41aa3f1f4cff089f6760284c0aa)
+        ;
+
+        
+    
+    
+            var circle_marker_fa7f18d1b9367d3558a088a099c17fa2 = L.circleMarker(
+                [53.309917, -6.251728],
+                {"bubblingMouseEvents": true, "color": "#ffba00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffba00ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_222bf59e28c92ce48d8ee90881cdc88e = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_a2ab6f5b92d0053f2978e474627b4534 = $(`<div id="html_a2ab6f5b92d0053f2978e474627b4534" style="width: 100.0%; height: 100.0%;"><b>Milltown</b><br>€2,179/month<br>13 min to St. Stephen's Green</div>`)[0];
+                popup_222bf59e28c92ce48d8ee90881cdc88e.setContent(html_a2ab6f5b92d0053f2978e474627b4534);
+            
+        
+
+        circle_marker_fa7f18d1b9367d3558a088a099c17fa2.bindPopup(popup_222bf59e28c92ce48d8ee90881cdc88e)
+        ;
+
+        
+    
+    
+            var circle_marker_bd1e605263b66202bd2f99b6c0cf2f38 = L.circleMarker(
+                [53.301558, -6.250708],
+                {"bubblingMouseEvents": true, "color": "#ff0000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_b9f00ac9905b153177afa866ede3a8bf = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_bbd7722a72e6f29b5f27e6f1d36f4f42 = $(`<div id="html_bbd7722a72e6f29b5f27e6f1d36f4f42" style="width: 100.0%; height: 100.0%;"><b>Windy Arbour</b><br>€2,412/month<br>15 min to St. Stephen's Green</div>`)[0];
+                popup_b9f00ac9905b153177afa866ede3a8bf.setContent(html_bbd7722a72e6f29b5f27e6f1d36f4f42);
+            
+        
+
+        circle_marker_bd1e605263b66202bd2f99b6c0cf2f38.bindPopup(popup_b9f00ac9905b153177afa866ede3a8bf)
+        ;
+
+        
+    
+    
+            var circle_marker_37bd99b0af024f1b5ad0ea0e369bf93f = L.circleMarker(
+                [53.292358, -6.245117],
+                {"bubblingMouseEvents": true, "color": "#ff9400ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff9400ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_b7e973abba06a084bb950c35a050c968 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_2c1728833dedaf2359cd5cd1e2db3629 = $(`<div id="html_2c1728833dedaf2359cd5cd1e2db3629" style="width: 100.0%; height: 100.0%;"><b>Dundrum</b><br>€2,227/month<br>17 min to St. Stephen's Green</div>`)[0];
+                popup_b7e973abba06a084bb950c35a050c968.setContent(html_2c1728833dedaf2359cd5cd1e2db3629);
+            
+        
+
+        circle_marker_37bd99b0af024f1b5ad0ea0e369bf93f.bindPopup(popup_b7e973abba06a084bb950c35a050c968)
+        ;
+
+        
+    
+    
+            var circle_marker_3c7d0d77cf03767964a6b272abfa51d9 = L.circleMarker(
+                [53.286106, -6.236772],
+                {"bubblingMouseEvents": true, "color": "#ff9400ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff9400ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_96f7ef5d1a44af579b2589b35ac9e913 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_ef0f9a47ab81f8fb6203b639739dbcef = $(`<div id="html_ef0f9a47ab81f8fb6203b639739dbcef" style="width: 100.0%; height: 100.0%;"><b>Balally</b><br>€2,227/month<br>19 min to St. Stephen's Green</div>`)[0];
+                popup_96f7ef5d1a44af579b2589b35ac9e913.setContent(html_ef0f9a47ab81f8fb6203b639739dbcef);
+            
+        
+
+        circle_marker_3c7d0d77cf03767964a6b272abfa51d9.bindPopup(popup_96f7ef5d1a44af579b2589b35ac9e913)
+        ;
+
+        
+    
+    
+            var circle_marker_70122d48a1e38ccb8bb605c0cef10de2 = L.circleMarker(
+                [53.283008, -6.223886],
+                {"bubblingMouseEvents": true, "color": "#ff6500ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6500ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_2afba8f6c52a4b1b7499d89b9d8c3bd0 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_3f0c43521144a3e5cbb35cba4a705bf2 = $(`<div id="html_3f0c43521144a3e5cbb35cba4a705bf2" style="width: 100.0%; height: 100.0%;"><b>Kilmacud</b><br>€2,286/month<br>21 min to St. Stephen's Green</div>`)[0];
+                popup_2afba8f6c52a4b1b7499d89b9d8c3bd0.setContent(html_3f0c43521144a3e5cbb35cba4a705bf2);
+            
+        
+
+        circle_marker_70122d48a1e38ccb8bb605c0cef10de2.bindPopup(popup_2afba8f6c52a4b1b7499d89b9d8c3bd0)
+        ;
+
+        
+    
+    
+            var circle_marker_31c5468e87da5da887368e10251fd45e = L.circleMarker(
+                [53.279311, -6.209919],
+                {"bubblingMouseEvents": true, "color": "#ff6500ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6500ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_9be559eb91d623c43376a99ad2892237 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_8d7a7b63687f7a684d35e710e920b51e = $(`<div id="html_8d7a7b63687f7a684d35e710e920b51e" style="width: 100.0%; height: 100.0%;"><b>Stillorgan</b><br>€2,286/month<br>22 min to St. Stephen's Green</div>`)[0];
+                popup_9be559eb91d623c43376a99ad2892237.setContent(html_8d7a7b63687f7a684d35e710e920b51e);
+            
+        
+
+        circle_marker_31c5468e87da5da887368e10251fd45e.bindPopup(popup_9be559eb91d623c43376a99ad2892237)
+        ;
+
+        
+    
+    
+            var circle_marker_2cab0f24d1f1ef00d4b51cf66bc8c514 = L.circleMarker(
+                [53.277603, -6.204678],
+                {"bubblingMouseEvents": true, "color": "#ff7f00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_3423e9aad740d6adb52580daf617a009 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_e64053161d0785b7f63e8f5350f6c675 = $(`<div id="html_e64053161d0785b7f63e8f5350f6c675" style="width: 100.0%; height: 100.0%;"><b>Sandyford</b><br>€2,253/month<br>24 min to St. Stephen's Green</div>`)[0];
+                popup_3423e9aad740d6adb52580daf617a009.setContent(html_e64053161d0785b7f63e8f5350f6c675);
+            
+        
+
+        circle_marker_2cab0f24d1f1ef00d4b51cf66bc8c514.bindPopup(popup_3423e9aad740d6adb52580daf617a009)
+        ;
+
+        
+    
+    
+            var circle_marker_77cf637672200d423297c30bbb99fbee = L.circleMarker(
+                [53.27015, -6.203764],
+                {"bubblingMouseEvents": true, "color": "#ddee00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ddee00ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_d77f295be5f37500f0c3839a11a145f3 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_20de759032bb641e214d202ac08d16d0 = $(`<div id="html_20de759032bb641e214d202ac08d16d0" style="width: 100.0%; height: 100.0%;"><b>Central Park</b><br>€2,050/month<br>26 min to St. Stephen's Green</div>`)[0];
+                popup_d77f295be5f37500f0c3839a11a145f3.setContent(html_20de759032bb641e214d202ac08d16d0);
+            
+        
+
+        circle_marker_77cf637672200d423297c30bbb99fbee.bindPopup(popup_d77f295be5f37500f0c3839a11a145f3)
+        ;
+
+        
+    
+    
+            var circle_marker_c59970c3b928439bd88c1df0061a7e03 = L.circleMarker(
+                [53.266336, -6.209942],
+                {"bubblingMouseEvents": true, "color": "#ddee00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ddee00ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_4aa6b9483c3c59044f740f10d743e05e = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_a7015826cd2f000ee87737c6897bd637 = $(`<div id="html_a7015826cd2f000ee87737c6897bd637" style="width: 100.0%; height: 100.0%;"><b>Glencairn</b><br>€2,050/month<br>28 min to St. Stephen's Green</div>`)[0];
+                popup_4aa6b9483c3c59044f740f10d743e05e.setContent(html_a7015826cd2f000ee87737c6897bd637);
+            
+        
+
+        circle_marker_c59970c3b928439bd88c1df0061a7e03.bindPopup(popup_4aa6b9483c3c59044f740f10d743e05e)
+        ;
+
+        
+    
+    
+            var circle_marker_ce220e2e47606b7717502e7ecf6cdb46 = L.circleMarker(
+                [53.261164, -6.206022],
+                {"bubblingMouseEvents": true, "color": "#ddee00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ddee00ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_97f407fe9a2d9ee36e14a7a2714c8660 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_6f7895f140323bfcd241795051f2ac2a = $(`<div id="html_6f7895f140323bfcd241795051f2ac2a" style="width: 100.0%; height: 100.0%;"><b>The Gallops</b><br>€2,050/month<br>29 min to St. Stephen's Green</div>`)[0];
+                popup_97f407fe9a2d9ee36e14a7a2714c8660.setContent(html_6f7895f140323bfcd241795051f2ac2a);
+            
+        
+
+        circle_marker_ce220e2e47606b7717502e7ecf6cdb46.bindPopup(popup_97f407fe9a2d9ee36e14a7a2714c8660)
+        ;
+
+        
+    
+    
+            var circle_marker_52bd8620f42230993eba16721a23955f = L.circleMarker(
+                [53.258247, -6.198361],
+                {"bubblingMouseEvents": true, "color": "#ddee00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ddee00ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_49d1f5724957bfa84c4bfda25ac20dc5 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_16578932ae696aa508f7d74ea34aed3d = $(`<div id="html_16578932ae696aa508f7d74ea34aed3d" style="width: 100.0%; height: 100.0%;"><b>Leopardstown Valley</b><br>€2,050/month<br>31 min to St. Stephen's Green</div>`)[0];
+                popup_49d1f5724957bfa84c4bfda25ac20dc5.setContent(html_16578932ae696aa508f7d74ea34aed3d);
+            
+        
+
+        circle_marker_52bd8620f42230993eba16721a23955f.bindPopup(popup_49d1f5724957bfa84c4bfda25ac20dc5)
+        ;
+
+        
+    
+    
+            var circle_marker_121c0e573cb1ed923ae61c0cc577b755 = L.circleMarker(
+                [53.255047, -6.184475],
+                {"bubblingMouseEvents": true, "color": "#cfe700ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cfe700ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_6a2123f668d49ab02519c4cd63421a2d = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_b60b1a7a924aa1a2f309399c44da716f = $(`<div id="html_b60b1a7a924aa1a2f309399c44da716f" style="width: 100.0%; height: 100.0%;"><b>Ballyogan Wood</b><br>€2,032/month<br>33 min to St. Stephen's Green</div>`)[0];
+                popup_6a2123f668d49ab02519c4cd63421a2d.setContent(html_b60b1a7a924aa1a2f309399c44da716f);
+            
+        
+
+        circle_marker_121c0e573cb1ed923ae61c0cc577b755.bindPopup(popup_6a2123f668d49ab02519c4cd63421a2d)
+        ;
+
+        
+    
+    
+            var circle_marker_c4e8c7a7140e3813fa746562f9145a55 = L.circleMarker(
+                [53.255367, -6.175161],
+                {"bubblingMouseEvents": true, "color": "#ddee00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ddee00ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_8bfadaefb6c8bbbd2e01b776b472be24 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_a86aaacefe04c5e89d777d7d0dd66c09 = $(`<div id="html_a86aaacefe04c5e89d777d7d0dd66c09" style="width: 100.0%; height: 100.0%;"><b>Racecourse</b><br>€2,050/month<br>34 min to St. Stephen's Green</div>`)[0];
+                popup_8bfadaefb6c8bbbd2e01b776b472be24.setContent(html_a86aaacefe04c5e89d777d7d0dd66c09);
+            
+        
+
+        circle_marker_c4e8c7a7140e3813fa746562f9145a55.bindPopup(popup_8bfadaefb6c8bbbd2e01b776b472be24)
+        ;
+
+        
+    
+    
+            var circle_marker_5871e9e239e58fe0e69011f9aaa3449c = L.circleMarker(
+                [53.254033, -6.169908],
+                {"bubblingMouseEvents": true, "color": "#cfe700ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cfe700ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_dd496c25b8374deebe181506ad3d8b51 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_5fbf5a913a233470e9c8b41b8aaf4e97 = $(`<div id="html_5fbf5a913a233470e9c8b41b8aaf4e97" style="width: 100.0%; height: 100.0%;"><b>Carrickmines</b><br>€2,032/month<br>36 min to St. Stephen's Green</div>`)[0];
+                popup_dd496c25b8374deebe181506ad3d8b51.setContent(html_5fbf5a913a233470e9c8b41b8aaf4e97);
+            
+        
+
+        circle_marker_5871e9e239e58fe0e69011f9aaa3449c.bindPopup(popup_dd496c25b8374deebe181506ad3d8b51)
+        ;
+
+        
+    
+    
+            var circle_marker_91f93d5bfaecf32d2a1574ee28721533 = L.circleMarker(
+                [53.252619, -6.161597],
+                {"bubblingMouseEvents": true, "color": "#d6eb00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d6eb00ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_4ee56e359edb4505fcfb5fb2fa556165 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_99267b177cb75cef33fbd9762e038e1a = $(`<div id="html_99267b177cb75cef33fbd9762e038e1a" style="width: 100.0%; height: 100.0%;"><b>Brennanstown</b><br>€2,041/month<br>37 min to St. Stephen's Green</div>`)[0];
+                popup_4ee56e359edb4505fcfb5fb2fa556165.setContent(html_99267b177cb75cef33fbd9762e038e1a);
+            
+        
+
+        circle_marker_91f93d5bfaecf32d2a1574ee28721533.bindPopup(popup_4ee56e359edb4505fcfb5fb2fa556165)
+        ;
+
+        
+    
+    
+            var circle_marker_f38fb0b6e7ca7185a2a5a6ade0617aa1 = L.circleMarker(
+                [53.250606, -6.155006],
+                {"bubblingMouseEvents": true, "color": "#d6eb00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d6eb00ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_552a6b71361538cbefff0cf2b5380797 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_4747f4a8295e0523e7b4b652993816cf = $(`<div id="html_4747f4a8295e0523e7b4b652993816cf" style="width: 100.0%; height: 100.0%;"><b>Laughanstown</b><br>€2,041/month<br>39 min to St. Stephen's Green</div>`)[0];
+                popup_552a6b71361538cbefff0cf2b5380797.setContent(html_4747f4a8295e0523e7b4b652993816cf);
+            
+        
+
+        circle_marker_f38fb0b6e7ca7185a2a5a6ade0617aa1.bindPopup(popup_552a6b71361538cbefff0cf2b5380797)
+        ;
+
+        
+    
+    
+            var circle_marker_e7a742ce23f5d89baa317b768e903d4a = L.circleMarker(
+                [53.245333, -6.145853],
+                {"bubblingMouseEvents": true, "color": "#d6eb00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d6eb00ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_7b348e46254ef6352219d4a8a7688316 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_70b04f3c63f01ed1e316e6a96d5e5b9c = $(`<div id="html_70b04f3c63f01ed1e316e6a96d5e5b9c" style="width: 100.0%; height: 100.0%;"><b>Cherrywood</b><br>€2,041/month<br>41 min to St. Stephen's Green</div>`)[0];
+                popup_7b348e46254ef6352219d4a8a7688316.setContent(html_70b04f3c63f01ed1e316e6a96d5e5b9c);
+            
+        
+
+        circle_marker_e7a742ce23f5d89baa317b768e903d4a.bindPopup(popup_7b348e46254ef6352219d4a8a7688316)
+        ;
+
+        
+    
+    
+            var circle_marker_4a5ea0169781254587d5107d97f3440f = L.circleMarker(
+                [53.242075, -6.142886],
+                {"bubblingMouseEvents": true, "color": "#008000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008000ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_dfe1892317a3f20e81e9ab850dea9039);
+        
+    
+        var popup_30e9ae0c8495f12bb342f42be776116b = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_316eea2de551a5cdc9d606646cf00653 = $(`<div id="html_316eea2de551a5cdc9d606646cf00653" style="width: 100.0%; height: 100.0%;"><b>Brides Glen</b><br>€1,772/month<br>42 min to St. Stephen's Green</div>`)[0];
+                popup_30e9ae0c8495f12bb342f42be776116b.setContent(html_316eea2de551a5cdc9d606646cf00653);
+            
+        
+
+        circle_marker_4a5ea0169781254587d5107d97f3440f.bindPopup(popup_30e9ae0c8495f12bb342f42be776116b)
+        ;
+
+        
+    
+</script>
+</html>
