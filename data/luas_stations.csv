@@ -1,0 +1,25 @@
+stop_sequence,station,latitude,longitude,distance_km_to_centre,travel_min_to_centre,rtb_location_area,rtb_location_district,park_and_ride
+0,St. Stephen's Green,53.339072,-6.261333,0.0,0,"Charlemont Street, Dublin 2",Dublin 2,0
+1,Harcourt,53.333358,-6.26265,0.64,2,"Charlemont Street, Dublin 2",Dublin 2,0
+2,Charlemont,53.330669,-6.258683,0.95,4,"Charlemont Street, Dublin 2",Dublin 2,0
+3,Ranelagh,53.326433,-6.256203,1.45,7,"Ranelagh, Dublin 6",Dublin 6,0
+4,Beechwood,53.320822,-6.254653,2.08,9,"Ranelagh, Dublin 6",Dublin 6,0
+5,Cowper,53.316467,-6.253447,2.57,11,"Ranelagh, Dublin 6",Dublin 6,0
+6,Milltown,53.309917,-6.251728,3.3,13,"Milltown, Dublin 6",Dublin 6,0
+7,Windy Arbour,53.301558,-6.250708,4.23,15,"Churchtown, Dublin 14",Dublin 14,0
+8,Dundrum,53.292358,-6.245117,5.3,17,"Dundrum, Dublin 16",Dublin 14,0
+9,Balally,53.286106,-6.236772,6.11,19,"Dundrum, Dublin 16",Dublin 16,1
+10,Kilmacud,53.283008,-6.223886,6.71,21,"Stillorgan, Dublin",Dublin 14,0
+11,Stillorgan,53.279311,-6.209919,7.47,22,"Stillorgan, Dublin",Dublin 18,1
+12,Sandyford,53.277603,-6.204678,7.8,24,"Sandyford, Dublin 18",Dublin 18,1
+13,Central Park,53.27015,-6.203764,8.57,26,"Leopardstown, Dublin 18",Dublin 18,0
+14,Glencairn,53.266336,-6.209942,8.78,28,"Leopardstown, Dublin 18",Dublin 18,0
+15,The Gallops,53.261164,-6.206022,9.41,29,"Leopardstown, Dublin 18",Dublin 18,0
+16,Leopardstown Valley,53.258247,-6.198361,9.91,31,"Leopardstown, Dublin 18",Dublin 18,0
+17,Ballyogan Wood,53.255047,-6.184475,10.65,33,"Carrickmines, Dublin 18",Dublin 18,0
+18,Racecourse,53.255367,-6.175161,10.93,34,"Leopardstown, Dublin 18",Dublin 18,0
+19,Carrickmines,53.254033,-6.169908,11.24,36,"Carrickmines, Dublin 18",Dublin 18,1
+20,Brennanstown,53.252619,-6.161597,11.68,37,"Cabinteely, Dublin 18",Dublin 18,0
+21,Laughanstown,53.250606,-6.155006,12.11,39,"Cabinteely, Dublin 18",Dublin 18,0
+22,Cherrywood,53.245333,-6.145853,12.94,41,"Cabinteely, Dublin 18",Dublin 18,0
+23,Brides Glen,53.242075,-6.142886,13.35,42,"Shankill, Dublin",Dublin 18,0

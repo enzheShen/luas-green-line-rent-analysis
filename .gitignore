@@ -1,0 +1,17 @@
+# Raw downloads are large and reproducible via src/data_loader.py
+data/raw/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# SQLite database is rebuilt from the processed data
+database/rent_data.db
+
+# OS / editor
+.DS_Store
