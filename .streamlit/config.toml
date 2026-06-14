@@ -1,0 +1,7 @@
+# Theme for the deployed Streamlit app.
+[theme]
+primaryColor = "#00a651"          # Luas green
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f4f6f5"
+textColor = "#1c1c1c"
+font = "sans serif"
