@@ -3,7 +3,7 @@
 Run locally:
     streamlit run app/streamlit_app.py
 
-Deployed on Streamlit Community Cloud. The SQLite database is not committed
+Ready for Streamlit Community Cloud. The SQLite database is not committed
 to git, so on a fresh clone (which is what the Cloud runs) it is rebuilt
 from the CSVs the first time the app starts - see ensure_database().
 """
