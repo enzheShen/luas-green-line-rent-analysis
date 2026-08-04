@@ -1,0 +1,33 @@
+{
+  "name": "Luas Green",
+  "dataColors": [
+    "#00a651",
+    "#1c3f5f",
+    "#f2a900",
+    "#7a9e9f",
+    "#c0392b",
+    "#5d6d7e",
+    "#16a085",
+    "#b3543f"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#1C1C1C",
+  "tableAccent": "#00a651",
+  "good": "#00a651",
+  "neutral": "#f2a900",
+  "bad": "#c0392b",
+  "textClasses": {
+    "title": { "fontFace": "Segoe UI Semibold", "fontSize": 14, "color": "#1c3f5f" },
+    "header": { "fontFace": "Segoe UI Semibold", "fontSize": 11, "color": "#1c3f5f" },
+    "label": { "fontFace": "Segoe UI", "fontSize": 10, "color": "#1C1C1C" }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "show": true, "color": { "solid": { "color": "#FFFFFF" } } }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#E3E6E5" } }, "radius": 6 }],
+        "title": [{ "fontColor": { "solid": { "color": "#1c3f5f" } }, "fontSize": 12 }]
+      }
+    }
+  }
+}
