@@ -4,6 +4,8 @@ How much does rent change as you travel south on Dublin's Luas Green Line?
 
 This project combines the Residential Tenancies Board (RTB) Average Monthly Rent Report with official Luas stop locations to compare rents near all 24 stops from St. Stephen's Green to Brides Glen. It tests whether a longer commute actually buys cheaper rent, identifies unusually large price changes between neighbouring stops, and highlights stations that offer the strongest balance between rent and travel time.
 
+**[Open the live Streamlit dashboard](https://luas-green-line-rent-explorer.streamlit.app/)**
+
 The analysis uses annual registered-tenancy rents from 2008 to 2025. For like-for-like comparisons, the main results use the RTB's **1 to 2 bed / all property types** category because it is the only bedroom-size series published across every area represented on the line.
 
 ## Key findings
@@ -110,10 +112,10 @@ The application rebuilds the ignored SQLite database automatically on a fresh de
 1. Sign in to [Streamlit Community Cloud](https://share.streamlit.io/) with GitHub.
 2. Select this repository and the `main` branch.
 3. Set the entrypoint to `app/streamlit_app.py`.
-4. In Advanced settings, choose Python 3.9 to match the tested local environment.
+4. In Advanced settings, choose Python 3.12.
 5. Deploy. The app uses `app/requirements.txt`, rebuilds SQLite automatically and does not require secrets.
 
-After deployment, add the public `streamlit.app` URL near the top of this README.
+The deployed app is available at [luas-green-line-rent-explorer.streamlit.app](https://luas-green-line-rent-explorer.streamlit.app/).
 
 ## SQL analysis layer
 
