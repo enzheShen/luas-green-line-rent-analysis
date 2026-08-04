@@ -28,6 +28,7 @@ The analysis uses annual registered-tenancy rents from 2008 to 2025. For like-fo
 - Matplotlib, Plotly and Folium visualisations
 - An interactive Streamlit dashboard
 - A Power BI-ready export, report theme and beginner build guide
+- A formatted Excel executive report with formula-driven KPIs, pivot-style summaries, conditional formatting and charts
 
 ## Data sources
 
@@ -50,6 +51,8 @@ luas-green-line-rent-analysis/
 │   ├── queries/                 # 17 analytical SQL queries
 │   ├── schema.sql
 │   └── rent_data.db             # rebuilt locally; not committed
+├── excel/
+│   └── executive_report.xlsx
 ├── notebooks/
 │   ├── 01_data_exploration.ipynb
 │   └── 02_analysis.ipynb
@@ -61,6 +64,7 @@ luas-green-line-rent-analysis/
 ├── src/
 │   ├── analysis.py
 │   ├── data_loader.py
+│   ├── export_excel.py
 │   ├── export_powerbi.py
 │   ├── sql_utils.py
 │   └── visualize.py
@@ -97,6 +101,13 @@ Execute the notebooks:
 
 ```bash
 jupyter lab
+```
+
+Regenerate the Excel executive report:
+
+```bash
+python src/export_powerbi.py
+python src/export_excel.py
 ```
 
 Run the interactive dashboard locally:
@@ -141,6 +152,8 @@ python src/sql_utils.py --run 16   # rent-gradient slope in SQL
 The Streamlit application provides four interactive views: station map, rent along the line, historical trend and value-for-money regression. Filters allow the user to change year, bedroom category and property type.
 
 The `powerbi/` directory contains a denormalised Power BI dataset, a Luas-inspired theme and a step-by-step report-building guide. The final `.pbix` and report screenshots will be added after validation in Power BI Desktop on Windows.
+
+The Excel report in `excel/executive_report.xlsx` contains an executive summary, station comparison, historical trends, pivot-style summaries, the full analysis dataset and methodology notes. Its formulas are configured to recalculate when opened in Excel.
 
 ## Method and limitations
 
