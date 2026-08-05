@@ -151,7 +151,11 @@ python src/sql_utils.py --run 16   # rent-gradient slope in SQL
 
 The Streamlit application provides four interactive views: station map, rent along the line, historical trend and value-for-money regression. Filters allow the user to change year, bedroom category and property type.
 
-The `powerbi/` directory contains a denormalised Power BI dataset, a Luas-inspired theme and a step-by-step report-building guide. The final `.pbix` and report screenshots will be added after validation in Power BI Desktop on Windows.
+The `powerbi/` directory contains the validated Power BI Desktop report (`dashboard.pbix`), its denormalised source dataset, a Luas-inspired theme and a step-by-step report-building guide. The report includes interactive year, bedroom and property-type filters, KPI cards, a station map, a station rent ranking, a multi-year rent trend and a rent-vs-commute scatter plot.
+
+![Power BI dashboard overview](powerbi/screenshots/dashboard_overview.png)
+
+Detailed views: [station map](powerbi/screenshots/map.png) and [rent-vs-commute gradient](powerbi/screenshots/gradient.png).
 
 The Excel report in `excel/executive_report.xlsx` contains an executive summary, station comparison, historical trends, pivot-style summaries, the full analysis dataset and methodology notes. Its formulas are configured to recalculate when opened in Excel.
 
