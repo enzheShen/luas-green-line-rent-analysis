@@ -57,9 +57,15 @@ luas-green-line-rent-analysis/
 │   ├── 01_data_exploration.ipynb
 │   └── 02_analysis.ipynb
 ├── powerbi/
+│   ├── dashboard.pbix
 │   ├── luas_rent_powerbi.csv
 │   ├── luas_theme.json
-│   └── README_powerbi_guide.md
+│   ├── README_powerbi_guide.md
+│   ├── WINDOWS_CODEX_HANDOFF.md
+│   └── screenshots/
+│       ├── dashboard_overview.png
+│       ├── map.png
+│       └── gradient.png
 ├── reports/figures/
 ├── src/
 │   ├── analysis.py
@@ -151,7 +157,7 @@ python src/sql_utils.py --run 16   # rent-gradient slope in SQL
 
 The Streamlit application provides four interactive views: station map, rent along the line, historical trend and value-for-money regression. Filters allow the user to change year, bedroom category and property type.
 
-The `powerbi/` directory contains the validated Power BI Desktop report (`dashboard.pbix`), its denormalised source dataset, a Luas-inspired theme and a step-by-step report-building guide. The report includes interactive year, bedroom and property-type filters, KPI cards, a station map, a station rent ranking, a multi-year rent trend and a rent-vs-commute scatter plot.
+The `powerbi/` directory contains the portfolio-ready Power BI Desktop report (`dashboard.pbix`), its denormalised source dataset, a Luas-inspired theme and a step-by-step report-building guide. The English-language report includes interactive year, bedroom and property-type filters, four KPI cards, a Green Line station map, a station rent ranking, a 2008–2025 rent trend and a rent-vs-commute scatter plot.
 
 ![Power BI dashboard overview](powerbi/screenshots/dashboard_overview.png)
 
